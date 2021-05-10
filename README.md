@@ -1,6 +1,6 @@
 # What the hell is this?
 
-[@ExcitedPinkbike](https://twitter.com/ExcitedPinkbike) is a Twitter account that posts AI-generated Pinkbike comments.
+[@ExcitedPinkbike](https://twitter.com/ExcitedPinkbike) is a Twitter account that posts AI-generated Pinkbike comments. It posts a few each day, sometimes. Sometimes it doesn't post. (It's probably out riding).
 
 ## ...what?
 
