@@ -74,4 +74,4 @@ for line in todays_tweets:
     api.update_status(line)
     print(line)
     print('posting the above...')
-    time.sleep(4700)  # Sleep for 45 minutes
+    time.sleep(2700)  # Sleep for 45 minutes
