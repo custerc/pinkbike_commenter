@@ -18,6 +18,7 @@ Yes... kind of. GPT-2 generated all of the tweets you see, but I (a human named 
 
 1. Selected specific comments from the many GPT-2 created that I think are particularly amusing, insane, absurd, or representative of Pinkbike commenters.
 2. In some cases, made very slight edits to the messages. I don't write anything, but I might (for example) select only part of a comment GPT-2 has generated to make it fit into a tweet.
+3. In some cases, I prompted GPT-2 to generate comments starting with a specific word or phrase to try to get it to comment on something specific, i.e. a specific bike brand. 
 
 ## ...why? Why would you do this?
 
