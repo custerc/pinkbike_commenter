@@ -5,6 +5,7 @@ import tweepy
 import time
 import pandas as pd
 import random
+import sys
 
 auth = tweepy.OAuthHandler(api_key, api_secret_key)
 auth.set_access_token(access_token, access_token_secret)
@@ -33,6 +34,11 @@ while len(new_tweets) > 0:
 # extract only the tweet text and not all the metadata
 posted_tweets = [[tweet.full_text] for tweet in alltweets]
 
+# create empty list and drop the extra junk
+posted_tweet_list = []
+for row in posted_tweets:
+    posted_tweet = row[0]
+    posted_tweet_list.append(posted_tweet)
 
 # PICK NEW TWEETS TO POST!
 generated = pd.read_csv('C:/Users/custerc/pinkbike_project/data/generated_comments_to_use.csv')
@@ -45,23 +51,26 @@ todays_tweets = []
 while counter < 3:
     print(counter)
     potential_tweet = random.choice(generated['Text'])
-    for row in posted_tweets:
-        if potential_tweet == row[0]:
-            break
-        else:
-            continue
+    # check if tweet is already on either list and skip if it is
+    if (potential_tweet in todays_tweets) or (potential_tweet in posted_tweet_list):
+        pass
+    else:
         todays_tweets.append(potential_tweet)
         print("Added " + potential_tweet)
         counter += 1
 
-print(len(todays_tweets))
-
+# An extra check/safety measure
+if (len(todays_tweets)) == 3:
+    print(todays_tweets)
+    print("Confirmed, posting now...")
+    pass
+else:
+    print('Something went wrong....')
+    sys.exit()
 
 # POST THE TWEETS!
-# # for line in tweetlist:
-# #     api.update_status(line)
-# #     print(line)
-# #     print('...')
-# #     time.sleep(15)  # Sleep for 15 seconds
-# print(tweetlist)
-# print("All done!")
+for line in todays_tweets:
+    api.update_status(line)
+    print(line)
+    print('posting the above...')
+    time.sleep(4700)  # Sleep for 45 minutes
