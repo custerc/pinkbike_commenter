@@ -47,10 +47,11 @@ generated = generated.dropna()
 counter = 0
 todays_tweets = []
 
-# something isn't working here. It's my brain...
+# CHECKING AND CHOOSING TWEETS
 while counter < 3:
     print(counter)
     potential_tweet = random.choice(generated['Text'])
+    potential_tweet = potential_tweet.replace('@', 'To:')
     # check if tweet is already on either list and skip if it is
     if (potential_tweet in todays_tweets) or (potential_tweet in posted_tweet_list):
         pass
