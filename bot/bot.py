@@ -75,3 +75,5 @@ for line in todays_tweets:
     print(line)
     print('posting the above...')
     time.sleep(2700)  # Sleep for 45 minutes
+
+sys.exit()
