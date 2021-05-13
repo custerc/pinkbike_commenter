@@ -40,9 +40,18 @@ for row in posted_tweets:
     posted_tweet = row[0]
     posted_tweet_list.append(posted_tweet)
 
+
 # PICK NEW TWEETS TO POST!
 generated = pd.read_csv('C:/Users/custerc/pinkbike_project/data/generated_comments_to_use.csv')
 generated = generated.dropna()
+
+if (len(posted_tweet_list) + 3) >= len(generated['Text']):
+    print('Insufficient generated tweets, aborting.')
+    sys.exit()
+else:
+    print('Confirmed sufficient tweet buffer.')
+# Remaining tweet buffer after these: ' + str((len(generated['Text']) - (len(posted_tweet_list) + 3)))
+
 
 counter = 0
 todays_tweets = []
@@ -60,10 +69,11 @@ while counter < 3:
         print("Added " + potential_tweet)
         counter += 1
 
+
 # An extra check/safety measure
 if (len(todays_tweets)) == 3:
     print(todays_tweets)
-    print("Confirmed, posting now...")
+    print("3 tweets confirmed, posting now...")
     pass
 else:
     print('Something went wrong....')
